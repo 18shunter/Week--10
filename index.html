@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: rgb(168, 59, 59);
+            text-align: center;  
+            font-size:x-large; 
+            font-weight: bold;  
+                            
+        }
+
+        h2{
+            color: black;
+            font-weight: bolder;            
+        }
+
+        h3 {
+            color: blue;
+            font-size:xx-large;
+            font-weight: bold;
+            font-style: italic;
+            f
+        }
+            
+    </style>
+</head>
+<body>
+    <h3>Looking for a Specific Vehicle?? Tell us below what you need!</h1>
+
+    
+        <div class="alert alert-primary">
+            We can help you find your dream car!
+        </div>
+
+        <div class="alert alert-danger">
+            Car, Truck, SUV? We'll find the right car for you!
+        </div>
+
+        
+
+        <h3>Current Wanted Vehicles<span class='badge badge-primary'></span> </h3>
+
+        <table class="table table-dark table-hover" id="vehicleTable">
+            <tr>
+                <th>Year</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Mileage</th>
+                <th>Finders Fee</th>
+            </tr>
+            <tr>
+                <td>2015-19</td>
+                <td>Gmc</td>
+                <td>Sierra</td>
+                <td>0-20k Miles</td>
+                <td>$300</td>
+            </tr>
+            <tr>
+                <td>2020-23</td>
+                <td>Ford</td>
+                <td>F150</td>
+                <td>30k-50k Miles</td>
+                <td>$500</td>
+            </tr>
+            <tr>
+                <td>2009-18</td>
+                <td>Ram</td>
+                <td>1500</td>
+                <td>120k-160k Miles</td>
+                <td>$250</td>
+            </tr>
+        </table>
+
+        <h3>Add What You're Looking For To Our List</h3>
+        <form id="carForm">
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="text" class="form-control" id="year" name="year">
+            </div>
+            <div class="form-group">
+                <label for="make">Make:</label>
+                <input type="text" class="form-control" id="make" name="make">
+            </div>
+            <div class="form-group">
+                <label for="model">Model:</label>
+                <input type="text" class="form-control" id="model" name="model">
+            </div>
+            <div class="form-group">
+                <label for="mileage">Mileage:</label>
+                <input type="text" class="form-control" id="mileage" name="mileage">
+            </div>
+            <div class="form-group">
+                <label for="fee">Finders Fee:</label>
+                <input type="text" class="form-control" id="fee" name="fee">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addCar()">Submit</button>
+        </form>
+   
+
+    <script>
+        function addCar() {
+            var table = document.getElementById("vehicleTable");
+            var form = document.getElementById("carForm");
+            var year = form.elements["year"].value;
+            var make = form.elements["make"].value;
+            var model = form.elements["model"].value;
+            var mileage = form.elements["mileage"].value;
+            var fee = form.elements["fee"].value;
+
+            var row = table.insertRow(-1);
+            row.innerHTML = "<td>" + year + "</td><td>" + make + "</td><td>" + model + "</td><td>" + mileage + "</td><td>" + fee + "</td>";
+            
+            // Reset the form fields
+            form.reset();
+        }
+    </script>
+</body>
+</html>
